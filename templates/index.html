@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Job Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 LinkedIn Job Scraper with Descriptions</h1>
+            <p>Scrape job listings from LinkedIn with detailed descriptions</p>
+        </header>
+
+        <div class="search-form">
+            <h2>🔍 Search Parameters</h2>
+            
+            <div class="form-group">
+                <label for="jobTitles">Job Titles (one per line):</label>
+                <textarea id="jobTitles" placeholder="e.g., Python Developer&#10;Data Scientist&#10;Software Engineer"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="locations">Locations (one per line):</label>
+                <textarea id="locations" placeholder="e.g., New York&#10;Remote&#10;San Francisco"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="jobsPerSearch">Jobs per search (1-50):</label>
+                <input type="number" id="jobsPerSearch" value="5" min="1" max="50">
+            </div>
+
+            <button id="startScraping" class="btn-primary">🚀 Start Scraping</button>
+        </div>
+
+        <div id="status" class="status hidden">
+            <h2>📊 Scraping Status</h2>
+            <div id="statusContent"></div>
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div id="results" class="results hidden">
+            <h2>📋 Results</h2>
+            <div id="resultsContent"></div>
+            <div id="downloadLinks" class="download-links"></div>
+        </div>
+
+        <div id="error" class="error hidden">
+            <h2>❌ Error</h2>
+            <div id="errorContent"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
